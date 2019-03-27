@@ -102,3 +102,12 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+
+# intermediate build file
+schema.graphql
+
+# misc
+yarn.lock
+.DS_Store
+
