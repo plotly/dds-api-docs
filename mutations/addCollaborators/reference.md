@@ -3,11 +3,10 @@
 ## Mutation
 
 ```
-mutation addCollaborators($teams: [String], $users: [String], $appname: String){
-    addCollaborators(teams: $teams, users: $users, appname: $appname){
+mutation addCollaborators($appname: String, $teams: [String], $users: [String]){
+    addCollaborators(appname: $appname, teams: $teams, users: $users){
         app{
             name
-            existsOnServer
             urlOnServer
             thumbnailUrl
             logs{
@@ -22,7 +21,7 @@ mutation addCollaborators($teams: [String], $users: [String], $appname: String){
                 title
                 description
                 tags
-                isPublic
+                permissionLevel
                 showInPortal
                 contact{
                     name
@@ -60,7 +59,6 @@ mutation addCollaborators($teams: [String], $users: [String], $appname: String){
                     error
                 }
                 appname
-                existsOnServer
             }
             environmentVariables{
                 name
@@ -86,9 +84,9 @@ mutation addCollaborators($teams: [String], $users: [String], $appname: String){
 
 Name | Type
 ---- | ---- 
+appname | `String`
 teams | `[String]`
 users | `[String]`
-appname | `String`
 
 ## Returns
 

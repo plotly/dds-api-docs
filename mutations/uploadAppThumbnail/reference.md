@@ -3,11 +3,10 @@
 ## Mutation
 
 ```
-mutation uploadAppThumbnail($thumbnail: Upload!, $appname: String){
-    uploadAppThumbnail(thumbnail: $thumbnail, appname: $appname){
+mutation uploadAppThumbnail($appname: String, $thumbnail: Upload!){
+    uploadAppThumbnail(appname: $appname, thumbnail: $thumbnail){
         app{
             name
-            existsOnServer
             urlOnServer
             thumbnailUrl
             logs{
@@ -22,7 +21,7 @@ mutation uploadAppThumbnail($thumbnail: Upload!, $appname: String){
                 title
                 description
                 tags
-                isPublic
+                permissionLevel
                 showInPortal
                 contact{
                     name
@@ -60,7 +59,6 @@ mutation uploadAppThumbnail($thumbnail: Upload!, $appname: String){
                     error
                 }
                 appname
-                existsOnServer
             }
             environmentVariables{
                 name
@@ -86,8 +84,8 @@ mutation uploadAppThumbnail($thumbnail: Upload!, $appname: String){
 
 Name | Type
 ---- | ---- 
-thumbnail | `Upload!`
 appname | `String`
+thumbnail | `Upload!`
 
 ## Returns
 

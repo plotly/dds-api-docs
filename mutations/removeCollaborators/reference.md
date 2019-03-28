@@ -3,11 +3,10 @@
 ## Mutation
 
 ```
-mutation removeCollaborators($teams: [String], $users: [String], $appname: String){
-    removeCollaborators(teams: $teams, users: $users, appname: $appname){
+mutation removeCollaborators($appname: String, $teams: [String], $users: [String]){
+    removeCollaborators(appname: $appname, teams: $teams, users: $users){
         app{
             name
-            existsOnServer
             urlOnServer
             thumbnailUrl
             logs{
@@ -22,7 +21,7 @@ mutation removeCollaborators($teams: [String], $users: [String], $appname: Strin
                 title
                 description
                 tags
-                isPublic
+                permissionLevel
                 showInPortal
                 contact{
                     name
@@ -60,7 +59,6 @@ mutation removeCollaborators($teams: [String], $users: [String], $appname: Strin
                     error
                 }
                 appname
-                existsOnServer
             }
             environmentVariables{
                 name
@@ -86,9 +84,9 @@ mutation removeCollaborators($teams: [String], $users: [String], $appname: Strin
 
 Name | Type
 ---- | ---- 
+appname | `String`
 teams | `[String]`
 users | `[String]`
-appname | `String`
 
 ## Returns
 

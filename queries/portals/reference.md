@@ -10,10 +10,10 @@ query portals($page: Int, $page1: Int, $name: String){
             name
             logoUrl
             metadata
+            requireLogin
             apps(page: $page){
                 apps{
                     name
-                    existsOnServer
                     urlOnServer
                     thumbnailUrl
                     logs{
@@ -28,7 +28,7 @@ query portals($page: Int, $page1: Int, $name: String){
                         title
                         description
                         tags
-                        isPublic
+                        permissionLevel
                         showInPortal
                         contact{
                             name
@@ -66,7 +66,6 @@ query portals($page: Int, $page1: Int, $name: String){
                             error
                         }
                         appname
-                        existsOnServer
                     }
                     environmentVariables{
                         name

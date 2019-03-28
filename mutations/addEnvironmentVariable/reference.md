@@ -3,8 +3,8 @@
 ## Mutation
 
 ```
-mutation addEnvironmentVariable($globalVar: Boolean, $name: String, $value: String, $appname: String){
-    addEnvironmentVariable(globalVar: $globalVar, name: $name, value: $value, appname: $appname){
+mutation addEnvironmentVariable($appname: String, $globalVar: Boolean, $name: String, $value: String){
+    addEnvironmentVariable(appname: $appname, globalVar: $globalVar, name: $name, value: $value){
         ok
         error
     }
@@ -15,10 +15,10 @@ mutation addEnvironmentVariable($globalVar: Boolean, $name: String, $value: Stri
 
 Name | Type
 ---- | ---- 
+appname | `String`
 globalVar | `Boolean`
 name | `String`
 value | `String`
-appname | `String`
 
 ## Returns
 

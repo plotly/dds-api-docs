@@ -3,8 +3,8 @@
 ## Mutation
 
 ```
-mutation removeEnvironmentVariable($globalVar: Boolean, $name: String, $appname: String){
-    removeEnvironmentVariable(globalVar: $globalVar, name: $name, appname: $appname){
+mutation removeEnvironmentVariable($appname: String, $globalVar: Boolean, $name: String){
+    removeEnvironmentVariable(appname: $appname, globalVar: $globalVar, name: $name){
         ok
         error
     }
@@ -15,9 +15,9 @@ mutation removeEnvironmentVariable($globalVar: Boolean, $name: String, $appname:
 
 Name | Type
 ---- | ---- 
+appname | `String`
 globalVar | `Boolean`
 name | `String`
-appname | `String`
 
 ## Returns
 

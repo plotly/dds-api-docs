@@ -1,12 +1,12 @@
-# current
+# appsCount
 
 ## Query
 
 ```
-query current{
-    current{
+query appsCount{
+    appsCount{
         username
-        isAdmin
+        count
     }
 }
 ```
@@ -16,4 +16,4 @@ query current{
 Name | Type
 ---- | ----
 username | `String`
-isAdmin | `Boolean`
+count | `Int`

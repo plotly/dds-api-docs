@@ -3,8 +3,8 @@
 ## Mutation
 
 ```
-mutation addService($serviceType: ServiceType, $name: String){
-    addService(serviceType: $serviceType, name: $name){
+mutation addService($name: String, $serviceType: ServiceType){
+    addService(name: $name, serviceType: $serviceType){
         service{
             name
             serviceType
@@ -19,8 +19,8 @@ mutation addService($serviceType: ServiceType, $name: String){
 
 Name | Type
 ---- | ---- 
-serviceType | `ServiceType`
 name | `String`
+serviceType | `ServiceType`
 
 ## Returns
 
