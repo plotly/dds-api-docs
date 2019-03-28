@@ -3,8 +3,8 @@
 ## Mutation
 
 ```
-mutation unlinkService($serviceType: ServiceType, $serviceName: String, $appname: String){
-    unlinkService(serviceType: $serviceType, serviceName: $serviceName, appname: $appname){
+mutation unlinkService($appname: String, $serviceName: String, $serviceType: ServiceType){
+    unlinkService(appname: $appname, serviceName: $serviceName, serviceType: $serviceType){
         ok
         error
     }
@@ -15,9 +15,9 @@ mutation unlinkService($serviceType: ServiceType, $serviceName: String, $appname
 
 Name | Type
 ---- | ---- 
-serviceType | `ServiceType`
-serviceName | `String`
 appname | `String`
+serviceName | `String`
+serviceType | `ServiceType`
 
 ## Returns
 

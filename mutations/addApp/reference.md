@@ -7,7 +7,6 @@ mutation addApp($name: String){
     addApp(name: $name){
         app{
             name
-            existsOnServer
             urlOnServer
             thumbnailUrl
             logs{
@@ -22,7 +21,7 @@ mutation addApp($name: String){
                 title
                 description
                 tags
-                isPublic
+                permissionLevel
                 showInPortal
                 contact{
                     name
@@ -60,7 +59,6 @@ mutation addApp($name: String){
                     error
                 }
                 appname
-                existsOnServer
             }
             environmentVariables{
                 name

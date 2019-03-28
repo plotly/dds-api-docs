@@ -3,8 +3,8 @@
 ## Mutation
 
 ```
-mutation linkService($serviceType: ServiceType, $serviceName: String, $appname: String){
-    linkService(serviceType: $serviceType, serviceName: $serviceName, appname: $appname){
+mutation linkService($appname: String, $serviceName: String, $serviceType: ServiceType){
+    linkService(appname: $appname, serviceName: $serviceName, serviceType: $serviceType){
         ok
         error
     }
@@ -15,9 +15,9 @@ mutation linkService($serviceType: ServiceType, $serviceName: String, $appname: 
 
 Name | Type
 ---- | ---- 
-serviceType | `ServiceType`
-serviceName | `String`
 appname | `String`
+serviceName | `String`
+serviceType | `ServiceType`
 
 ## Returns
 

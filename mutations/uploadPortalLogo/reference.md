@@ -10,10 +10,10 @@ mutation uploadPortalLogo($page: Int, $logo: Upload!, $portalname: String){
             name
             logoUrl
             metadata
+            requireLogin
             apps(page: $page){
                 apps{
                     name
-                    existsOnServer
                     urlOnServer
                     thumbnailUrl
                     logs{
@@ -28,7 +28,7 @@ mutation uploadPortalLogo($page: Int, $logo: Upload!, $portalname: String){
                         title
                         description
                         tags
-                        isPublic
+                        permissionLevel
                         showInPortal
                         contact{
                             name
@@ -66,7 +66,6 @@ mutation uploadPortalLogo($page: Int, $logo: Upload!, $portalname: String){
                             error
                         }
                         appname
-                        existsOnServer
                     }
                     environmentVariables{
                         name

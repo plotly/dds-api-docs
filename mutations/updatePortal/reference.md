@@ -3,17 +3,17 @@
 ## Mutation
 
 ```
-mutation updatePortal($page: Int, $portalname: String, $metadata: JSONString){
-    updatePortal(portalname: $portalname, metadata: $metadata){
+mutation updatePortal($page: Int, $metadata: JSONString, $portalname: String, $requireLogin: Boolean){
+    updatePortal(metadata: $metadata, portalname: $portalname, requireLogin: $requireLogin){
         portal{
             id
             name
             logoUrl
             metadata
+            requireLogin
             apps(page: $page){
                 apps{
                     name
-                    existsOnServer
                     urlOnServer
                     thumbnailUrl
                     logs{
@@ -28,7 +28,7 @@ mutation updatePortal($page: Int, $portalname: String, $metadata: JSONString){
                         title
                         description
                         tags
-                        isPublic
+                        permissionLevel
                         showInPortal
                         contact{
                             name
@@ -66,7 +66,6 @@ mutation updatePortal($page: Int, $portalname: String, $metadata: JSONString){
                             error
                         }
                         appname
-                        existsOnServer
                     }
                     environmentVariables{
                         name
@@ -96,8 +95,9 @@ mutation updatePortal($page: Int, $portalname: String, $metadata: JSONString){
 Name | Type
 ---- | ---- 
 page | `Int`
-portalname | `String`
 metadata | `JSONString`
+portalname | `String`
+requireLogin | `Boolean`
 
 ## Returns
 

@@ -3,11 +3,10 @@
 ## Mutation
 
 ```
-mutation updateApp($metadata: AppMetaDataInput, $appname: String){
-    updateApp(metadata: $metadata, appname: $appname){
+mutation updateApp($appname: String, $metadata: AppMetaDataInput){
+    updateApp(appname: $appname, metadata: $metadata){
         app{
             name
-            existsOnServer
             urlOnServer
             thumbnailUrl
             logs{
@@ -22,7 +21,7 @@ mutation updateApp($metadata: AppMetaDataInput, $appname: String){
                 title
                 description
                 tags
-                isPublic
+                permissionLevel
                 showInPortal
                 contact{
                     name
@@ -60,7 +59,6 @@ mutation updateApp($metadata: AppMetaDataInput, $appname: String){
                     error
                 }
                 appname
-                existsOnServer
             }
             environmentVariables{
                 name
@@ -86,8 +84,8 @@ mutation updateApp($metadata: AppMetaDataInput, $appname: String){
 
 Name | Type
 ---- | ---- 
-metadata | `AppMetaDataInput`
 appname | `String`
+metadata | `AppMetaDataInput`
 
 ## Returns
 

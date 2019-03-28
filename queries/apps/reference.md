@@ -7,7 +7,6 @@ query apps($page: Int, $name: String){
     apps(page: $page, name: $name){
         apps{
             name
-            existsOnServer
             urlOnServer
             thumbnailUrl
             logs{
@@ -22,7 +21,7 @@ query apps($page: Int, $name: String){
                 title
                 description
                 tags
-                isPublic
+                permissionLevel
                 showInPortal
                 contact{
                     name
@@ -60,7 +59,6 @@ query apps($page: Int, $name: String){
                     error
                 }
                 appname
-                existsOnServer
             }
             environmentVariables{
                 name

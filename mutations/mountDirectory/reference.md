@@ -3,8 +3,8 @@
 ## Mutation
 
 ```
-mutation mountDirectory($targetDir: String, $hostDir: String, $appname: String){
-    mountDirectory(targetDir: $targetDir, hostDir: $hostDir, appname: $appname){
+mutation mountDirectory($appname: String, $hostDir: String, $targetDir: String){
+    mountDirectory(appname: $appname, hostDir: $hostDir, targetDir: $targetDir){
         ok
         error
     }
@@ -15,9 +15,9 @@ mutation mountDirectory($targetDir: String, $hostDir: String, $appname: String){
 
 Name | Type
 ---- | ---- 
-targetDir | `String`
-hostDir | `String`
 appname | `String`
+hostDir | `String`
+targetDir | `String`
 
 ## Returns
 

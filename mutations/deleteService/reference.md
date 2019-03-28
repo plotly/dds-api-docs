@@ -3,8 +3,8 @@
 ## Mutation
 
 ```
-mutation deleteService($serviceType: ServiceType, $name: String){
-    deleteService(serviceType: $serviceType, name: $name){
+mutation deleteService($name: String, $serviceType: ServiceType){
+    deleteService(name: $name, serviceType: $serviceType){
         ok
         error
     }
@@ -15,8 +15,8 @@ mutation deleteService($serviceType: ServiceType, $name: String){
 
 Name | Type
 ---- | ---- 
-serviceType | `ServiceType`
 name | `String`
+serviceType | `ServiceType`
 
 ## Returns
 

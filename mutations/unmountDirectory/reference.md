@@ -3,8 +3,8 @@
 ## Mutation
 
 ```
-mutation unmountDirectory($targetDir: String, $hostDir: String, $appname: String){
-    unmountDirectory(targetDir: $targetDir, hostDir: $hostDir, appname: $appname){
+mutation unmountDirectory($appname: String, $hostDir: String, $targetDir: String){
+    unmountDirectory(appname: $appname, hostDir: $hostDir, targetDir: $targetDir){
         ok
         error
     }
@@ -15,9 +15,9 @@ mutation unmountDirectory($targetDir: String, $hostDir: String, $appname: String
 
 Name | Type
 ---- | ---- 
-targetDir | `String`
-hostDir | `String`
 appname | `String`
+hostDir | `String`
+targetDir | `String`
 
 ## Returns
 
