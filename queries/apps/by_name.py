@@ -6,14 +6,14 @@ name = "test-app"
 apps_name_query = gql(
     """
     {
-      apps(name: {name}) {
-        apps {
-            name
-            status {
-                running
+        apps(name: {name}) {
+            apps {
+                name
+                status {
+                    running
+                }
             }
         }
-      }
     }
     """
 )
