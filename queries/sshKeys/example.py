@@ -13,4 +13,4 @@ ssh_keys_query = gql(
 
 result = dds_client.execute(ssh_keys_query)
 
-print("ssh keys: {result.keys}")
+print(f"ssh keys: {result.keys}")

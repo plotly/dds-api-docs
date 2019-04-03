@@ -30,5 +30,5 @@ files = {0: logo_content}
 
 result = request.post(dds_endpoint, files=files, data=data).data
 
-print("new logo url: {result.app.logoUrl}")
-print("error: {result.error}")
+print(f"new logo url: {result.app.logoUrl}")
+print(f"error: {result.error}")

@@ -40,6 +40,6 @@ update_app_mutation = gql(
 
 result = dds_client.execute(update_app_mutation)
 
-print("updated app name: {result.app.name}")
-print("updated metadata contact email: {result.app.metadata.contact.email}")
-print("error: {result.error}")
+print(f"updated app name: {result.app.name}")
+print(f"updated metadata contact email: {result.app.metadata.contact.email}")
+print(f"error: {result.error}")

@@ -18,5 +18,5 @@ unlink_service_mutation = gql(
 
 result = dds_client.execute(unlink_service_mutation)
 
-print("success: {result.ok}")
-print("error: {result.error}")
+print(f"success: {result.ok}")
+print(f"error: {result.error}")

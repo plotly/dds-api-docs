@@ -18,5 +18,5 @@ mount_directory_mutation = gql(
 
 result = dds_client.execute(mount_directory_mutation)
 
-print("success: {result.ok}")
-print("error: {result.error}")
+print(f"success: {result.ok}")
+print(f"error: {result.error}")

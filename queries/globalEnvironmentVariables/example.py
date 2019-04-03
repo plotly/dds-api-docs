@@ -15,4 +15,4 @@ global_environment_variables_query = gql(
 
 result = dds_client.execute(global_environment_variables_query)
 
-print("first environment variable name: {result[0].name}")
+print(f"first environment variable name: {result[0].name}")

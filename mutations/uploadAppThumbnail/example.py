@@ -30,5 +30,5 @@ files = {0: thumbnail_content}
 
 result = request.post(dds_endpoint, files=files, data=data).data
 
-print("new thumbnail url: {result.app.thumbnailUrl}")
-print("error: {result.error}")
+print(f"new thumbnail url: {result.app.thumbnailUrl}")
+print(f"error: {result.error}")

@@ -18,5 +18,5 @@ add_app_mutation = gql(
 
 result = dds_client.execute(add_app_mutation)
 
-print("new app name: {result.app.name}")
-print("error: {result.error}")
+print(f"new app name: {result.app.name}")
+print(f"error: {result.error}")

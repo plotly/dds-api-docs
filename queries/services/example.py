@@ -15,4 +15,4 @@ services_query = gql(
 
 result = dds_client.execute(services_query)
 
-print("first services name: {result[0].name}")
+print(f"first services name: {result[0].name}")
