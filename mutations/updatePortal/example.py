@@ -1,15 +1,17 @@
+import json
 from gql import gql
 from dds import client as dds_client
 
+metadata = json.dumps(
+    {"name": "portal-meta-name", "description": "This is a description for a portal."}
+)
+
 update_portal_mutation = gql(
     """
-    mutation {
+    mutation UpdatePortal($metadata: JSONString!) {
         updatePortal(
             portalname:  "test-portal",
-            metadata: {
-                "name": "portal-meta-name",
-                "description": "This is a description for a portal."
-            }
+            metadata: $metadata
         ) {
             portal {
                 name
@@ -27,7 +29,9 @@ update_portal_mutation = gql(
   """
 )
 
-result = dds_client.execute(update_portal_mutation)["updatePortal"]
+result = dds_client.execute(update_portal_mutation, {"metadata": metadata})[
+    "updatePortal"
+]
 
 print(f"updated portal name: {result['portal']['name']}")
 print(f"updated metadata: {result['portal']['metadata']}")

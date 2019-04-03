@@ -5,7 +5,7 @@ unlink_service_mutation = gql(
     """
     mutation {
         unlinkService(
-            serviceType: "REDIS",
+            serviceType: REDIS,
             serviceName: "test-service",
             appname: "test-app"
         ) {

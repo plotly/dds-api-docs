@@ -4,15 +4,15 @@ from dds import client as dds_client
 update_app_mutation = gql(
     """
     mutation {
-        updateApp(metadata: {
-                "title": "title",
-                "description": "description",
-                "tags": "tag1,tag2,tag3",
-                "isPublic": True,
-                "showInPortal": True,
-                "contact": {
-                    "name": "contact-name",
-                    "email": "contact-email@test.com"
+        updateApp(
+            metadata: {
+                title: "title",
+                description: "description",
+                tags: "tag1,tag2,tag3",
+                showInPortal: true,
+                contact: {
+                    name: "contact-name",
+                    email: "contact-email@test.com"
                 }
             },
             appname: "test-app"
@@ -23,7 +23,6 @@ update_app_mutation = gql(
                     title
                     description
                     tags
-                    isPublic
                     showInPortal
                     contact {
                         name

@@ -5,7 +5,7 @@ link_service_mutation = gql(
     """
     mutation {
         linkService(
-            serviceType: "REDIS",
+            serviceType: REDIS,
             serviceName: "test-service",
             appname: "test-app"
         ) {

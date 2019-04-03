@@ -23,5 +23,5 @@ add_collaborators_mutation = gql(
 
 result = dds_client.execute(add_collaborators_mutation)["addCollaborators"]
 
-print(f"new user collaborator: {result['app']['collaborators'][0]['users'][0]}")
+print(f"new user collaborator: {result['app']['collaborators']['users'][0]}")
 print(f"error: {result['error']}")

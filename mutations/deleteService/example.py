@@ -4,7 +4,7 @@ from dds import client as dds_client
 delete_service_mutation = gql(
     """
     mutation {
-        deleteService(serviceType: "REDIS", name: "test-service") {
+        deleteService(serviceType: REDIS, name: "test-service") {
             ok
             error
         }
