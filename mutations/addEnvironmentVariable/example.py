@@ -16,7 +16,7 @@ add_environment_variable_mutation = gql(
     """
 )
 
-result = dds_client.execute(add_environment_variable_mutation)
+result = dds_client.execute(add_environment_variable_mutation)["addEnvironmentVariable"]
 
-print(f"ok: {result.ok}")
-print(f"error: {result.error}")
+print(f"ok: {result['ok']}")
+print(f"error: {result['error']}")

@@ -15,7 +15,7 @@ delete_service_mutation = gql(
     """
 )
 
-result = dds_client.execute(delete_service_mutation)
+result = dds_client.execute(delete_service_mutation)["deleteService"]
 
-print(f"success: {result.ok}")
-print(f"error: {result.error}")
+print(f"success: {result['ok']}")
+print(f"error: {result['error']}")

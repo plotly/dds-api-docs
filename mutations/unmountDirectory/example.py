@@ -16,7 +16,7 @@ unmount_directory_mutation = gql(
     """
 )
 
-result = dds_client.execute(unmount_directory_mutation)
+result = dds_client.execute(unmount_directory_mutation)["unmountDirectory"]
 
-print(f"success: {result.ok}")
-print(f"error: {result.error}")
+print(f"success: {result['ok']}")
+print(f"error: {result['error']}")

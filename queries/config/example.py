@@ -15,6 +15,6 @@ config_query = gql(
     """
 )
 
-config = dds_client.execute(config_query)
+config = dds_client.execute(config_query)["config"]
 
-print(f"auth password: {config.AUTH_PASSWORD}")
+print(f"auth password: {config['AUTH_PASSWORD']}")

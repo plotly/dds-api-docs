@@ -16,8 +16,8 @@ change_password_mutation = gql(
     """
 )
 
-result = dds_client.execute(change_password_mutation)
+result = dds_client.execute(change_password_mutation)["changePassword"]
 
-print(f"success: {result.ok}")
-print(f"current password error: {result.currentPasswordError}")
-print(f"new password error: {result.newPasswordError}")
+print(f"success: {result['ok']}")
+print(f"current password error: {result['currentPasswordError']}")
+print(f"new password error: {result['newPasswordError']}")

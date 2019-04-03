@@ -1,12 +1,10 @@
 import gql
 import dds_client
 
-name = "test-app"
-
 add_app_mutation = gql(
     """
     mutation {
-        addApp(name: {name}) {
+        addApp(name: "test-app") {
             app {
                 name
             }
@@ -16,7 +14,7 @@ add_app_mutation = gql(
     """
 )
 
-result = dds_client.execute(add_app_mutation)
+result = dds_client.execute(add_app_mutation)["addApp"]
 
-print(f"new app name: {result.app.name}")
-print(f"error: {result.error}")
+print(f"new app name: {result['app']['name']}")
+print(f"error: {result['error']}")

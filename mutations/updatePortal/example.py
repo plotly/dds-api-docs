@@ -28,9 +28,9 @@ update_portal_mutation = gql(
   """
 )
 
-result = dds_client.execute(update_portal_mutation)
+result = dds_client.execute(update_portal_mutation)["updatePortal"]
 
-print(f"updated portal name: {result.portal.name}")
-print(f"updated metadata: {result.portal.metadata}")
-print(f"updated portal's first app name: {result.portal.apps.apps[0].name}")
-print(f"error: {result.error}")
+print(f"updated portal name: {result['portal']['name']}")
+print(f"updated metadata: {result['portal']['metadata']}")
+print(f"updated portal's first app name: {result['portal']['apps']['apps'][0]['name']}")
+print(f"error: {result['error']}")
