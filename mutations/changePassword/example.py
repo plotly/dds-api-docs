@@ -1,4 +1,4 @@
-import gql
+from gql import gql
 import dds_client
 
 current_password = "current-password"
