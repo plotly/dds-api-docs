@@ -1,14 +1,14 @@
 from gql import gql
 import dds_client
 
-name = "test-env-var"
-value = "value"
-app_name = "test-app"
-
 add_environment_variable_mutation = gql(
     """
     mutation {
-        addEnvironmentVariable(name: {name}, value: {value}, appname: {app_name}){
+        addEnvironmentVariable(
+            name: "test-env-var",
+            value: "value",
+            appname: "test-app"
+        ){
             ok
             error
         }

@@ -4,12 +4,11 @@ from dds_client import dds_endpoint
 
 logo_file_name = "logo.png"
 logo_content = open(logo_file_name, "r")
-portal_name = "DEFAULT"
 
 mutation = gql(
     """
     mutation ($logo: Upload!){
-        uploadPortalLogo(logo: $logo: , portalname: {portal_name}) {
+        uploadPortalLogo(logo: $logo: , portalname: "DEFAULT") {
             portal {
                 logoUrl
             }

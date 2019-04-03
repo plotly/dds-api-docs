@@ -1,13 +1,10 @@
 from gql import gql
 import dds_client
 
-current_password = "current-password"
-new_password = "new-password"
-
 change_password_mutation = gql(
     """
     mutation {
-        changePassword(currentPassword: {current_password}, newPassword: {new_password}) {
+        changePassword(currentPassword: "current-password", newPassword: "new-password") {
             ok
             currentPasswordError
             newPasswordError

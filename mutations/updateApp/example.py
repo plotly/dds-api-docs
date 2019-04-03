@@ -1,23 +1,22 @@
-import json
 from gql import gql
 import dds_client
-
-meta_data = json.dumps(
-    {
-        "title": "title",
-        "description": "description",
-        "tags": "tag1,tag2,tag3",
-        "isPublic": True,
-        "showInPortal": True,
-        "contact": {"name": "contact-name", "email": "contact-email@test.com"},
-    }
-)
-app_name = "test-app"
 
 update_app_mutation = gql(
     """
     mutation {
-        updateApp(metadata: {meta_data}, appname: {app_name}) {
+        updateApp(metadata: {
+                "title": "title",
+                "description": "description",
+                "tags": "tag1,tag2,tag3",
+                "isPublic": True,
+                "showInPortal": True,
+                "contact": {
+                    "name": "contact-name",
+                    "email": "contact-email@test.com"
+                }
+            },
+            appname: "test-app"
+        ) {
             app {
                 name
                 metadata {

@@ -1,12 +1,10 @@
 from gql import gql
 import dds_client
 
-page = 2
-
 apps_page_query = gql(
     """
     {
-        apps(page: {page}) {
+        apps(page: 2) {
             apps {
                 urlOnServer
                 metadata {

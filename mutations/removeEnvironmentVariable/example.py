@@ -1,13 +1,10 @@
 from gql import gql
 import dds_client
 
-name = "test-env-var"
-app_name = "test-app"
-
 remove_environment_variable_mutation = gql(
     """
     mutation {
-        removeEnvironmentVariable(appname: {app_name}, name: {name}){
+        removeEnvironmentVariable(appname: "test-env-var", name: "test-app"){
             ok
             error
         }
