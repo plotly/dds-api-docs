@@ -1,5 +1,5 @@
 from gql import gql
-import dds_client
+from dds import client as dds_client
 
 mount_directory_mutation = gql(
     """

@@ -5,4 +5,4 @@ DDS_ENDPOINT = "https://dds.example.com/graphql"
 
 transport = RequestsHTTPTransport(url=DDS_ENDPOINT, use_json=True)
 
-dds_client = Client(retries=3, transport=transport)
+client = Client(retries=3, transport=transport)
