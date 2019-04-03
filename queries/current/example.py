@@ -6,6 +6,7 @@ current_query = gql(
     {
         current {
             username
+            isAdmin
         }
     }
     """
@@ -14,3 +15,4 @@ current_query = gql(
 current = dds_client.execute(current_query)
 
 print("username: {current.username}")
+print("is admin user: {current.isAdmin}")
