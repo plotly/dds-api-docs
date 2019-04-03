@@ -1,5 +1,5 @@
 from gql import gql
-import dds_client
+from dds import client as dds_client
 
 update_ssh_keys_mutation = gql(
     """

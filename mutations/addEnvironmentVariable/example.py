@@ -1,5 +1,5 @@
 from gql import gql
-import dds_client
+from dds import client as dds_client
 
 add_environment_variable_mutation = gql(
     """

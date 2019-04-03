@@ -1,6 +1,6 @@
 import requests
 from gql import gql
-from dds_client import dds_endpoint
+from dds import DDS_ENDPOINT
 
 logo_file_name = "logo.png"
 logo_content = open(logo_file_name, "r")
@@ -27,7 +27,7 @@ data = {"operations": operations, "map": file_map}
 
 files = {0: logo_content}
 
-result = requests.post(dds_endpoint, files=files, data=data).data
+result = requests.post(DDS_ENDPOINT, files=files, data=data).data
 
 print(f"new logo url: {result['app']['logoUrl']}")
 print(f"error: {result['error']}")
