@@ -4,7 +4,7 @@
   "description": "Generates fully-expanded queries with Markdown documentation for a GraphQL endpoint.",
   "main": "index.js",
   "scripts": {
-    "gen": "npm run schema && node genReferenceDocs.js",
+    "generate": "npm run schema && node genReferenceDocs.js",
     "schema": "get-graphql-schema http://localhost:8888/Manager/graphql > schema.graphql"
   },
   "author": "Sean Rabaut",
@@ -13,6 +13,5 @@
     "get-graphql-schema": "^2.1.2",
     "graphql": "^0.13.2"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
