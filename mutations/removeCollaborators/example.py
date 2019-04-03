@@ -23,5 +23,6 @@ remove_collaborators_mutation = gql(
 
 result = dds_client.execute(remove_collaborators_mutation)
 
-print("updated first collaborators teams: {result.app.collaborators[0].teams}")
-print("error: {result.error}")
+print(f"remaining teams: {result.app.collaborators.teams}")
+print(f"remaining users: {result.app.collaborators.users}")
+print(f"error: {result.error}")

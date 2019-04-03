@@ -14,5 +14,5 @@ current_query = gql(
 
 current = dds_client.execute(current_query)
 
-print("username: {current.username}")
-print("is admin user: {current.isAdmin}")
+print(f"username: {current.username}")
+print(f"is admin user: {current.isAdmin}")

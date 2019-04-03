@@ -21,5 +21,5 @@ add_service_mutation = gql(
 
 result = dds_client.execute(add_service_mutation)
 
-print("new service name: {result.service.name}")
-print("error: {result.error}")
+print(f"new service name: {result.service.name}")
+print(f"error: {result.error}")
