@@ -3,10 +3,7 @@ import dds_client
 import json
 
 meta_data = json.dumps(
-    {
-        "name": "portal-meta-name",
-        "description": "This is a description for a portals metadata.",
-    }
+    {"name": "portal-meta-name", "description": "This is a description for a portal."}
 )
 
 portal_name = "test-portal"
