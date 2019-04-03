@@ -4,7 +4,7 @@ from dds import client as dds_client
 add_service_mutation = gql(
     """
     mutation {
-        addService(serviceType: "REDIS", name: "test-service") {
+        addService(serviceType: REDIS, name: "test-service") {
             service {
                 name
                 serviceType
