@@ -1,6 +1,6 @@
+import json
 from gql import gql
 import dds_client
-import json
 
 meta_data = json.dumps(
     {

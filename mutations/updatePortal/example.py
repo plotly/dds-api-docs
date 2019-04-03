@@ -1,6 +1,6 @@
+import json
 from gql import gql
 import dds_client
-import json
 
 meta_data = json.dumps(
     {"name": "portal-meta-name", "description": "This is a description for a portal."}
