@@ -1,4 +1,4 @@
-import gql
+from gql import gql
 import dds_client
 
 global_environment_variables_query = gql(

@@ -1,4 +1,4 @@
-import gql
+from gql import gql
 import requests
 from dds_client import dds_endpoint
 

@@ -1,4 +1,4 @@
-import gql
+from gql import gql
 import dds_client
 
 keys = "key-0\nkey-1\nkey-2"
