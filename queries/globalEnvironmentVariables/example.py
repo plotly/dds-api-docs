@@ -1,5 +1,5 @@
 from gql import gql
-from dds import client as dds_client
+from dds import client as dds_clie
 
 global_environment_variables_query = gql(
     """
