@@ -12,7 +12,7 @@ current_query = gql(
     """
 )
 
-current = dds_client.execute(current_query)
+current = dds_client.execute(current_query)["current"]
 
-print(f"username: {current.username}")
-print(f"is admin user: {current.isAdmin}")
+print(f"username: {current['username']}")
+print(f"is admin user: {current['isAdmin']}")

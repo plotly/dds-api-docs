@@ -21,8 +21,8 @@ remove_collaborators_mutation = gql(
     """
 )
 
-result = dds_client.execute(remove_collaborators_mutation)
+result = dds_client.execute(remove_collaborators_mutation)["removeCollaborators"]
 
-print(f"remaining teams: {result.app.collaborators.teams}")
-print(f"remaining users: {result.app.collaborators.users}")
-print(f"error: {result.error}")
+print(f"remaining teams: {result['app']['collaborators']['teams']}")
+print(f"remaining users: {result['app']['collaborators']['users']}")
+print(f"error: {result['error']}")

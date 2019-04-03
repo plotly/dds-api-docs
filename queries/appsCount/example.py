@@ -12,7 +12,7 @@ apps_count_query = gql(
     """
 )
 
-result = dds_client.execute(apps_count_query)
+result = dds_client.execute(apps_count_query)["appsCount"]
 
-print(f"first count: {result[0].count}")
-print(f"first username: {result[0].username}")
+print(f"first count: {result[0]['count']}")
+print(f"first username: {result[0]['username']}")

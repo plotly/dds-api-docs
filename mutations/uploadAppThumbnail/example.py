@@ -28,7 +28,7 @@ data = {"operations": operations, "map": file_map}
 
 files = {0: thumbnail_content}
 
-result = request.post(dds_endpoint, files=files, data=data).data
+result = request.post(dds_endpoint, files=files, data=data)["data"]
 
-print(f"new thumbnail url: {result.app.thumbnailUrl}")
-print(f"error: {result.error}")
+print(f"new thumbnail url: {result['app']['thumbnailUrl']}")
+print(f"error: {result['error']}")

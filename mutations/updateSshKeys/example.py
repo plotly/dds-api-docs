@@ -14,7 +14,7 @@ update_ssh_keys_mutation = gql(
     """
 )
 
-result = dds_client.execute(update_ssh_keys_mutation)
+result = dds_client.execute(update_ssh_keys_mutation)["updateSshKeys"]
 
-print(f"success: {result.ok}")
-print(f"error: {result.error}")
+print(f"success: {result['ok']}")
+print(f"error: {result['error']}")
