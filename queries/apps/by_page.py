@@ -21,6 +21,6 @@ apps_page_query = gql(
 
 result = dds_client.execute(apps_page_query)
 
-print("next page: {result.nextPage}")
-print("app url on server: {result.apps[0].urlOnServer}")
-print("app show in portal: {result.apps[0].metadata.showInPortal}")
+print("next page: {result.apps.nextPage}")
+print("app url on server: {result.apps.apps[0].urlOnServer}")
+print("app show in portal: {result.apps.apps[0].metadata.showInPortal}")

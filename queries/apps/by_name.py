@@ -18,7 +18,7 @@ apps_name_query = gql(
     """
 )
 
-reuslt = dds_client.execute(apps_name_query)
+result = dds_client.execute(apps_name_query)
 
 print("app name: {result.apps[0].name}")
 print("app status running: {result.apps[0].status.running}")
