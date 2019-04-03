@@ -1,13 +1,10 @@
 from gql import gql
 import dds_client
 
-service_type = "REDIS"
-name = "test-service"
-
 add_service_mutation = gql(
     """
     mutation {
-        addService(serviceType: {service_type}, name: {name}) {
+        addService(serviceType: "REDIS", name: "test-service") {
             service {
                 name
                 serviceType

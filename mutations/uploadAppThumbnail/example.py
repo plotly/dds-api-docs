@@ -4,12 +4,11 @@ from dds_client import dds_endpoint
 
 thumbnail_file_name = "thumbnail.png"
 thumbnail_content = open(thumbnail_file_name, "r")
-app_name = "test-app"
 
 mutation = gql(
     """
     mutation ($thumbnail: Upload!){
-        uploadAppThumbnail(thumbnail: $thumbnail: , appname: {app_name}) {
+        uploadAppThumbnail(thumbnail: $thumbnail: , appname: "test-app") {
             app {
                 thumbnailUrl
             }

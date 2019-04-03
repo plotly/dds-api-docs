@@ -1,12 +1,10 @@
 from gql import gql
 import dds_client
 
-name = "test-app"
-
 apps_name_query = gql(
     """
     {
-        apps(name: {name}) {
+        apps(name: "test-app") {
             apps {
                 name
                 status {

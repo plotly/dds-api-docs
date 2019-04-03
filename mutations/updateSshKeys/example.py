@@ -1,12 +1,10 @@
 from gql import gql
 import dds_client
 
-keys = "key-0\nkey-1\nkey-2"
-
 update_ssh_keys_mutation = gql(
     """
     mutation {
-        updateSshKeys(keys: {keys}) {
+        updateSshKeys(keys: "key-0\nkey-1\nkey-2") {
             ok
             error
         }

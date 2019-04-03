@@ -1,14 +1,10 @@
 from gql import gql
 import dds_client
 
-target_dir = "target"
-host_dir = "host"
-app_name = "test-app"
-
 mount_directory_mutation = gql(
     """
     mutation {
-        mountDirectory(targetDir: {target_dir}, hostDir: {host_dir}, appname: {app_name}) {
+        mountDirectory(targetDir: "target", hostDir: "host", appname: "test-app") {
             ok
             error
         }

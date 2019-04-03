@@ -1,12 +1,10 @@
 from gql import gql
 import dds_client
 
-name = "test-app"
-
 delete_app_mutation = gql(
     """
     mutation {
-        deleteApp(name: {name}) {
+        deleteApp(name: "test-app") {
             ok
             error
         }
