@@ -5,7 +5,7 @@ name = "DEFAULT"
 
 portals_name_query = gql(
     """
-    {
+    query PortalQuery ($name: String!){
         portals(name: $name) {
             portals {
                 name
@@ -16,7 +16,7 @@ portals_name_query = gql(
     """
 )
 
-result = dds_client.execute(portals_name_query)["portals"]
+result = dds_client.execute(portals_name_query, {"name": name})["portals"]
 
-print(f"portal name: {result.portals[0]['name']}")
-print(f"portal logo URL: {result.portals[0]['logoUrl']}")
+print(f"portal name: {result['portals'][0]['name']}")
+print(f"portal logo URL: {result['portals'][0]['logoUrl']}")
