@@ -18,13 +18,13 @@ mutation = gql(
     }
     """
 )
-variables = {logo: logo_file_name}
+variables = {"logo": logo_file_name}
 
-operations = {query: mutation, variables: variables}
+operations = {"query": mutation, "variables": variables}
 
 file_map = {0: [logo_file_name]}
 
-data = {operations: operations, "map": file_map}
+data = {"operations": operations, "map": file_map}
 
 files = {0: logo_content}
 
