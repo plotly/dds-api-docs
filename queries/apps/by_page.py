@@ -6,15 +6,15 @@ page = 2
 apps_page_query = gql(
     """
     {
-      apps(page: {page}) {
-        apps {
-            urlOnServer
-            metadata {
-                showInPortal
+        apps(page: {page}) {
+            apps {
+                urlOnServer
+                metadata {
+                    showInPortal
+                }
             }
+            nextPage
         }
-        nextPage
-      }
     }
     """
 )
