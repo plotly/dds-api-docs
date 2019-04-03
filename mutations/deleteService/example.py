@@ -6,7 +6,7 @@ name = "test-service"
 
 delete_service_mutation = gql(
     """
-    {
+    mutation {
         deleteService(serviceType: {service_type}, name: {name}) {
             ok
             error

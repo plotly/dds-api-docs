@@ -7,7 +7,7 @@ app_name = "test-app"
 
 add_environment_variable_mutation = gql(
     """
-    {
+    mutation {
         addEnvironmentVariable(name: {name}, value: {value}, appname: {app_name}){
             ok
             error

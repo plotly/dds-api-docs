@@ -6,7 +6,7 @@ new_password = "new-password"
 
 change_password_mutation = gql(
     """
-    {
+    mutation {
         changePassword(currentPassword: {current_password}, newPassword: {new_password}) {
             ok
             currentPasswordError

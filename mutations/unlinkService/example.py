@@ -7,7 +7,7 @@ app_name = "test-app"
 
 unlink_service_mutation = gql(
     """
-    {
+    mutation {
         unlinkService(serviceType: {service_type}, serviceName: {service_name}, appname: {app_name}) {
             ok
             error

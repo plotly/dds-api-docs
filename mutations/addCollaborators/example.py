@@ -7,7 +7,7 @@ app_name = "test-app"
 
 add_collaborators_mutation = gql(
     """
-    {
+    mutation {
         addCollaborators(teams: {teams}, users: {users}, appname: {app_name}) {
             app {
                 collaborators {

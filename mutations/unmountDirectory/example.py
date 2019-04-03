@@ -7,7 +7,7 @@ app_name = "test-app"
 
 unmount_directory_mutation = gql(
     """
-    {
+    mutation {
         unmountDirectory(targetDir: {target_dir}, hostDir: {host_dir}, appname: {app_name}) {
             ok
             error

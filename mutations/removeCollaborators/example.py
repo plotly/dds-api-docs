@@ -7,7 +7,7 @@ app_name = "test-app"
 
 remove_collaborators_mutation = gql(
     """
-    {
+    mutation {
         removeCollaborators(teams: {teams}, users: {users}, appname: {app_name}) {
             app {
                 collaborators {
