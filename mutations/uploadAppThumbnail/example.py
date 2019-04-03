@@ -1,5 +1,5 @@
-from gql import gql
 import requests
+from gql import gql
 from dds_client import dds_endpoint
 
 thumbnail_file_name = "thumbnail.png"
@@ -28,7 +28,7 @@ data = {"operations": operations, "map": file_map}
 
 files = {0: thumbnail_content}
 
-result = request.post(dds_endpoint, files=files, data=data)["data"]
+result = requests.post(dds_endpoint, files=files, data=data)["data"]
 
 print(f"new thumbnail url: {result['app']['thumbnailUrl']}")
 print(f"error: {result['error']}")

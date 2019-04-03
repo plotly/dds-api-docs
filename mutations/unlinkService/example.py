@@ -1,14 +1,14 @@
 from gql import gql
 import dds_client
 
-service_type = "REDIS"
-service_name = "test-service"
-app_name = "test-app"
-
 unlink_service_mutation = gql(
     """
     mutation {
-        unlinkService(serviceType: {service_type}, serviceName: {service_name}, appname: {app_name}) {
+        unlinkService(
+            serviceType: "REDIS",
+            serviceName: "test-service",
+            appname: "test-app"
+        ) {
             ok
             error
         }
