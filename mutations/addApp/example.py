@@ -5,7 +5,7 @@ name = "test-app"
 
 add_app_mutation = gql(
     """
-    {
+    mutation {
         addApp(name: {name}) {
             app {
                 name

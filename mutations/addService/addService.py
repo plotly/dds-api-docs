@@ -6,7 +6,7 @@ name = "test-service"
 
 add_service_mutation = gql(
     """
-    {
+    mutation {
         addService(serviceType: {service_type}, name: {name}) {
             service {
                 name

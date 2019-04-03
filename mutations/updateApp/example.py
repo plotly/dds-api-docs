@@ -16,7 +16,7 @@ app_name = "test-app"
 
 update_app_mutation = gql(
     """
-    {
+    mutation {
         updateApp(metadata: {meta_data}, appname: {app_name}) {
             app {
                 name

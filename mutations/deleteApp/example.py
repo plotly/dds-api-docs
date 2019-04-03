@@ -5,7 +5,7 @@ name = "test-app"
 
 delete_app_mutation = gql(
     """
-    {
+    mutation {
         deleteApp(name: {name}) {
             ok
             error
