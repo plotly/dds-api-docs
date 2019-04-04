@@ -1,33 +1,37 @@
+import json
 import requests
-from gql import gql
 from dds import DDS_ENDPOINT
 
 logo_file_name = "logo.png"
-logo_content = open(logo_file_name, "r")
+logo_content = open(logo_file_name, "rb")
 
-mutation = gql(
-    """
-    mutation ($logo: Upload!){
-        uploadPortalLogo(logo: $logo: , portalname: "DEFAULT") {
-            portal {
-                logoUrl
-            }
-            error
+mutation = """
+mutation($logo: Upload!){
+    uploadPortalLogo(logo: $logo, portalname: "default") {
+        portal {
+            logoUrl
         }
+        error
     }
-    """
-)
-variables = {"logo": logo_file_name}
+}
+"""
 
-operations = {"query": mutation, "variables": variables}
+variables = {"logo": logo_file_name, "portalname": "default"}
 
-file_map = {0: [logo_file_name]}
+operations = json.dumps({"query": mutation, "variables": {"portalname": "default"}})
 
-data = {"operations": operations, "map": file_map}
+data = {
+    "operations": operations,
+    "map": '{"0":["variables.logo"]}',
+    "0": logo_file_name,
+}
 
-files = {0: logo_content}
+files = {"0": logo_content}
 
-result = requests.post(DDS_ENDPOINT, files=files, data=data).data
+result = requests.post(DDS_ENDPOINT, data=data, files=files)
 
-print(f"new logo url: {result['app']['logoUrl']}")
+result = json.loads(result.text)
+result = result["data"]["uploadPortalLogo"]
+
+print(f"new logo url: {result['portal']['logoUrl']}")
 print(f"error: {result['error']}")
