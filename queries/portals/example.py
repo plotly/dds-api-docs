@@ -1,7 +1,7 @@
 from gql import gql
 from dds import client as dds_client
 
-name = "DEFAULT"
+name = "default"
 
 portals_name_query = gql(
     """
