@@ -1,9 +1,14 @@
+import os
 import json
 import requests
 from dds import DDS_ENDPOINT
 
 thumbnail_file_name = "thumbnail.png"
-thumbnail_content = open(thumbnail_file_name, "rb")
+thumbnail_location = os.path.join(
+    os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__))),
+    thumbnail_file_name,
+)
+thumbnail_content = open(thumbnail_location, "rb")
 
 mutation = """
 mutation ($thumbnail: Upload!){
