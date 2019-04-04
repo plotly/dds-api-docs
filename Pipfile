@@ -9,6 +9,7 @@ lint = "black ."
 [packages]
 gql = "*"
 requests = "*"
+dds = {editable = true, path = "."}
 
 [dev-packages]
 black = "*"
