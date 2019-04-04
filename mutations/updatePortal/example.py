@@ -10,7 +10,7 @@ update_portal_mutation = gql(
     """
     mutation UpdatePortal($metadata: JSONString!) {
         updatePortal(
-            portalname:  "test-portal",
+            portalname: "default",
             metadata: $metadata
         ) {
             portal {
@@ -34,6 +34,6 @@ result = dds_client.execute(update_portal_mutation, {"metadata": metadata})[
 ]
 
 print(f"updated portal name: {result['portal']['name']}")
-print(f"updated metadata: {result['portal']['metadata']}")
+print(f"updated metadata: {json.loads(result['portal']['metadata'])}")
 print(f"updated portal's first app name: {result['portal']['apps']['apps'][0]['name']}")
 print(f"error: {result['error']}")
