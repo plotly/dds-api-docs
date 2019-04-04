@@ -1,6 +1,8 @@
 from gql import gql
 from dds import client as dds_client
 
+keys = "key-0\nkey-1\nkey-2"
+
 update_ssh_keys_mutation = gql(
     """
     mutation UpdateSSHKeys ($keys: String!) {
