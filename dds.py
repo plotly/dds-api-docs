@@ -19,4 +19,4 @@ transport = RequestsHTTPTransport(
     url=DDS_ENDPOINT, auth=AUTH, use_json=True, verify=VERIFY
 )
 
-client = Client(retries=3, transport=transport)
+client = Client(transport=transport)
