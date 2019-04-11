@@ -7,9 +7,9 @@ name = "pypi"
 lint = "black ."
 
 [packages]
-gql = "*"
+gql = {editable = true,git = "https://github.com/cw1427/gql.git",ref = "52e1a04f39452771c6021a4b4fee3a168929c9a4"}
 requests = "*"
-dds = {editable = true, path = "."}
+dds = {editable = true,path = "."}
 
 [dev-packages]
 black = "*"
