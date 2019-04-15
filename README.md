@@ -6,7 +6,7 @@ These docs contain the reference DDS GraphQL API (found in the `.md` files), as 
 
 1. `pipenv install --dev`
 2. `pipenv shell`
-3. Update the `DDS_ENDPOINT` in [`dds.py`](./dds.py) to the deployment of DDS you are using
+3. Update the variables at the top of [`dds.py`](./dds.py) to match your DDS settings.
 4. Run `python <path/to/example.py>`
    - Example: `python mutations/addApp/example.py`
 
