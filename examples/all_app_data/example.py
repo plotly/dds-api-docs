@@ -40,8 +40,6 @@ apps_name_query = gql(
     """
 )
 
-app_meta = {}
-
 ### Get all app names
 ## Grabs all app names from server
 def get_all_app_names():
