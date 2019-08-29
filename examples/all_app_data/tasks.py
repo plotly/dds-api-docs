@@ -59,7 +59,7 @@ def r_get_run_start_time():
 @celery_app.on_after_configure.connect
 def setup_periodic_tasks(sender, **kwargs):
     # Executes Every 4 hours
-    sender.add_periodic_task(crontab(minute="*/1"), update_data.s())
+    sender.add_periodic_task(crontab(minute="*/240"), update_data.s())
 
 
 # Celery Task -
