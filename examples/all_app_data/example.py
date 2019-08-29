@@ -6,8 +6,7 @@ from dateutil.parser import parse
 import re
 import pandas as pd
 
-### GraphQL Query
-
+### GraphQL Querys
 ## Query individual app (can modify this query to grab whatever data you like)
 apps_idv_app_query = gql(
     """
@@ -15,6 +14,7 @@ apps_idv_app_query = gql(
         apps(name: $name, allApps: $allApps) {
             apps{
                 name
+                owner {username}
                 analytics {dependencies {python}}
                 analytics {timestamps {visited, updated, created}}
                 analytics {resources {cpuUsage, memoryUsage, containerSize}}
@@ -45,48 +45,23 @@ apps_name_query = gql(
 def get_all_app_names():
     # Init constants
     app_names = []
-    page = 1
+    page = 0
 
     print("\nGetting all app names ...")
 
     # Run through all pages
-    while page is 1 or next_page is not None:
-        data = parse_all_names_query(
-            apps_name_query, page, app_names
-        )
-        app_names = data["app_names"]
-        page = data["page"]
-        next_page = data["next_page"]
-        result = data["result"]
+    while page is not None:
+        results = dds_client.execute(apps_name_query, {"page": page, "allApps": True})["apps"]
+
+        resultApps = results["apps"]
+        for result in resultApps:
+            app_names.append(result['name'])
+        page = results["nextPage"]
+
     print("\nCollecting list of app names ...")
-    print("\nSample query (most recent): ", result)
     print("\nAll app names: ", app_names)
     return app_names
 
-## Parse app names from each query
-def parse_all_names_query(query, page, app_names):
-    # DDS connection
-    result = dds_client.execute(apps_name_query, {"page": page, "allApps": True})[
-        "apps"
-    ]
-    page += 1
-
-    # Current amount of apps in query
-    app_count = len(result["apps"])
-
-    # Check if nextPage
-    next_page = result["nextPage"]
-
-    for app_idx in range(app_count):
-        name = result["apps"][app_idx]["name"]
-        app_names.append(name) 
-
-    return {
-        "app_names": app_names,
-        "page": page,
-        "next_page": next_page,
-        "result": result
-    }
 
 ### Get individual application metadata
 ## Main function that gets all app names, meta data, and generates CSV
@@ -98,20 +73,13 @@ def get_all_apps_data():
     print("\nGetting metadata for all apps... ")
 
     # Run through all pages (recommend changing app_names to 1 - 5 apps for test Ex: all_app_names -> all_app_names[0:1])
-    for app_name in all_app_names:
+    for app_name in all_app_names[0:2]:
         print("Querying: ", app_name)
         data = parse_idv_app_query(app_name)
         all_app_data.append(data)
 
-    print("\nSample query (most recent): ", data)
-
-    # Generate CSV and pandas dataframe
-    print("\nGenerating CSV...")
-    df = pd.DataFrame(data=all_app_data)
-    df = df.reindex_axis(['name'] + list(df.columns[:-1]), axis=1)
-    df.to_csv("./apps_data.csv", index=False)
     print("\nFinished!")
-    return
+    return all_app_data
 
 
 ## Parse individual apps (can easily be modified for different queries)
@@ -143,4 +111,27 @@ def parse_idv_app_query(app_name):
 
     return my_data
 
-get_all_apps_data()
+## Generate CSV
+def generate_csv(all_app_data):
+    # Rearrange columns if name and owner_username exist
+    df = pd.DataFrame(data=all_app_data)
+    if {'name', 'owner_username'}.issubset(df.columns):
+        df = df.reindex_axis(['name'] + ["owner_username"] + list(df.columns[:-1]), axis=1)
+    print("\nGenerating CSV...")
+    df.to_csv("./apps_data.csv", index=False)
+    print("\nFinished!")
+    return
+
+def generate_df(all_app_data):
+    df = pd.DataFrame(data=all_app_data)
+    return df
+
+# # Get all app data
+# all_app_data = get_all_apps_data()
+
+# # Create dataframe
+# df = generate_df(all_app_data)
+# print("\nDataframe: ", df.head(n=5))
+
+# # Generate CSV
+# generate_csv(all_app_data)
