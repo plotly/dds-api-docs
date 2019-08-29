@@ -44,7 +44,7 @@ analytics {resources {cpuUsage, memoryUsage, containerSize}}
 analytics {gitRevision {subject}}
 metadata {permissionLevel}
 ``` 
-
+## Redis/Celery Setup
 ### Linux/MacOS:
 
 #### Running the Redis-Server
