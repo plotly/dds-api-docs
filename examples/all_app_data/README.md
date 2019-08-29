@@ -38,6 +38,7 @@ Note: It may take a while to query all your applications depending on how many y
 By default the following queries will be called:
 ```
 name
+owner {username}
 analytics {dependencies {python}}
 analytics {timestamps {visited, updated, created}}
 analytics {resources {cpuUsage, memoryUsage, containerSize}}
