@@ -51,11 +51,13 @@ def get_all_app_names():
 
     # Run through all pages
     while page is not None:
-        results = dds_client.execute(apps_name_query, {"page": page, "allApps": True})["apps"]
+        results = dds_client.execute(apps_name_query, {"page": page, "allApps": True})[
+            "apps"
+        ]
 
         resultApps = results["apps"]
         for result in resultApps:
-            app_names.append(result['name'])
+            app_names.append(result["name"])
         page = results["nextPage"]
 
     print("\nCollecting list of app names ...")
@@ -85,7 +87,7 @@ def get_all_apps_data():
 ## Parse individual apps (can easily be modified for different queries)
 def parse_idv_app_query(app_name):
     my_data = {}
-    
+
     # Recursive function that parses through all nested dicts
     def meta_recur(node, name=""):
         for k, v in node.items():
@@ -94,37 +96,42 @@ def parse_idv_app_query(app_name):
                 sep = ""
 
             if isinstance(v, dict):
-                meta_recur(v, name = name + sep + k)
+                meta_recur(v, name=name + sep + k)
             else:
                 if v == None:
                     v = "None"
-            
+
                 my_data[name + sep + k] = v
 
     # DDS connection
-    result = dds_client.execute(apps_idv_app_query, {"name": app_name, "allApps": True})[
-        "apps"
-    ]["apps"][0]
-    
+    result = dds_client.execute(
+        apps_idv_app_query, {"name": app_name, "allApps": True}
+    )["apps"]["apps"][0]
+
     # Call recursive function
     meta_recur(result)
 
     return my_data
 
+
 ## Generate CSV
 def generate_csv(all_app_data):
     # Rearrange columns if name and owner_username exist
     df = pd.DataFrame(data=all_app_data)
-    if {'name', 'owner_username'}.issubset(df.columns):
-        df = df.reindex_axis(['name'] + ["owner_username"] + list(df.columns[:-1]), axis=1)
+    if {"name", "owner_username"}.issubset(df.columns):
+        df = df.reindex_axis(
+            ["name"] + ["owner_username"] + list(df.columns[:-1]), axis=1
+        )
     print("\nGenerating CSV...")
     df.to_csv("./apps_data.csv", index=False)
     print("\nFinished!")
     return
 
+
 def generate_df(all_app_data):
     df = pd.DataFrame(data=all_app_data)
     return df
+
 
 # # Get all app data
 # all_app_data = get_all_apps_data()
