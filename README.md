@@ -7,6 +7,13 @@ These docs contain the reference DDS GraphQL API (found in the `.md` files), as 
 1. `pipenv install --dev`
 2. `pipenv shell`
 3. Update the variables at the top of [`dds.py`](./dds.py) to match your DDS settings.
+
+    ```shell
+    export DDS_DOMAIN_NAME="dash.example.com"
+    export DDS_USERNAME="username"
+    export DDS_API_KEY="api_key"
+    ```
+
 4. Run `python <path/to/example.py>`
    - Example: `python mutations/addApp/example.py`
 
