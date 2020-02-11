@@ -11,6 +11,7 @@ query config{
         AUTH_LDAP_ENABLED
         SSL_DASH_CERT_GENERATE
         AUTH_PASSWORD
+        HA_ENABLED
     }
 }
 ```
@@ -25,3 +26,4 @@ AUTH_SAML_ENABLED | `Boolean`
 AUTH_LDAP_ENABLED | `Boolean`
 SSL_DASH_CERT_GENERATE | `Boolean`
 AUTH_PASSWORD | `Boolean`
+HA_ENABLED | `Boolean`

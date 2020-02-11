@@ -1,10 +1,10 @@
-# mountDirectory
+# setResources
 
 ## Mutation
 
 ```
-mutation mountDirectory($appname: String, $hostDir: String, $targetDir: String){
-    mountDirectory(appname: $appname, hostDir: $hostDir, targetDir: $targetDir){
+mutation setResources($appname: String, $resources: [ResourceInput]){
+    setResources(appname: $appname, resources: $resources){
         ok
         refresh
         error
@@ -17,8 +17,7 @@ mutation mountDirectory($appname: String, $hostDir: String, $targetDir: String){
 Name | Type
 ---- | ---- 
 appname | `String`
-hostDir | `String`
-targetDir | `String`
+resources | `[ResourceInput]`
 
 ## Returns
 

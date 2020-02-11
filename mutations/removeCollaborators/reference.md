@@ -7,6 +7,9 @@ mutation removeCollaborators($appname: String, $teams: [String], $users: [String
     removeCollaborators(appname: $appname, teams: $teams, users: $users){
         app{
             name
+            owner{
+                username
+            }
             urlOnServer
             thumbnailUrl
             logs{
@@ -23,6 +26,7 @@ mutation removeCollaborators($appname: String, $teams: [String], $users: [String
                 tags
                 permissionLevel
                 showInPortal
+                sortRank
                 contact{
                     name
                     email
@@ -31,6 +35,12 @@ mutation removeCollaborators($appname: String, $teams: [String], $users: [String
             mounts{
                 hostDir
                 targetDir
+                status
+            }
+            processes{
+                type
+                number
+                status
             }
             analytics{
                 timestamps{
@@ -63,16 +73,31 @@ mutation removeCollaborators($appname: String, $teams: [String], $users: [String
             environmentVariables{
                 name
                 value
+                status
                 readonly
             }
             linkedServices{
                 name
                 serviceType
                 created
+                status
             }
             status{
                 running
                 deploying
+                canScale
+            }
+            resources{
+                type
+                status
+                request{
+                    cpu
+                    memory
+                }
+                limit{
+                    cpu
+                    memory
+                }
             }
         }
         error

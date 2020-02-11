@@ -7,6 +7,9 @@ mutation uploadAppThumbnail($appname: String, $thumbnail: Upload!){
     uploadAppThumbnail(appname: $appname, thumbnail: $thumbnail){
         app{
             name
+            owner{
+                username
+            }
             urlOnServer
             thumbnailUrl
             logs{
@@ -23,6 +26,7 @@ mutation uploadAppThumbnail($appname: String, $thumbnail: Upload!){
                 tags
                 permissionLevel
                 showInPortal
+                sortRank
                 contact{
                     name
                     email
@@ -31,6 +35,12 @@ mutation uploadAppThumbnail($appname: String, $thumbnail: Upload!){
             mounts{
                 hostDir
                 targetDir
+                status
+            }
+            processes{
+                type
+                number
+                status
             }
             analytics{
                 timestamps{
@@ -63,16 +73,31 @@ mutation uploadAppThumbnail($appname: String, $thumbnail: Upload!){
             environmentVariables{
                 name
                 value
+                status
                 readonly
             }
             linkedServices{
                 name
                 serviceType
                 created
+                status
             }
             status{
                 running
                 deploying
+                canScale
+            }
+            resources{
+                type
+                status
+                request{
+                    cpu
+                    memory
+                }
+                limit{
+                    cpu
+                    memory
+                }
             }
         }
         error

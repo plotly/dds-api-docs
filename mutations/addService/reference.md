@@ -9,6 +9,7 @@ mutation addService($name: String, $serviceType: ServiceType){
             name
             serviceType
             created
+            status
         }
         error
     }

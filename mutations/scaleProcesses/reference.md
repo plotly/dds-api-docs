@@ -1,10 +1,10 @@
-# mountDirectory
+# scaleProcesses
 
 ## Mutation
 
 ```
-mutation mountDirectory($appname: String, $hostDir: String, $targetDir: String){
-    mountDirectory(appname: $appname, hostDir: $hostDir, targetDir: $targetDir){
+mutation scaleProcesses($appname: String, $processes: [ProcessInput]){
+    scaleProcesses(appname: $appname, processes: $processes){
         ok
         refresh
         error
@@ -17,8 +17,7 @@ mutation mountDirectory($appname: String, $hostDir: String, $targetDir: String){
 Name | Type
 ---- | ---- 
 appname | `String`
-hostDir | `String`
-targetDir | `String`
+processes | `[ProcessInput]`
 
 ## Returns
 

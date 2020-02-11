@@ -6,6 +6,7 @@
 mutation unlinkService($appname: String, $serviceName: String, $serviceType: ServiceType){
     unlinkService(appname: $appname, serviceName: $serviceName, serviceType: $serviceType){
         ok
+        refresh
         error
     }
 }
@@ -24,4 +25,5 @@ serviceType | `ServiceType`
 Name | Type
 ---- | ----
 ok | `Boolean`
+refresh | `Boolean`
 error | `String`

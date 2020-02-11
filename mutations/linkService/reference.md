@@ -6,6 +6,7 @@
 mutation linkService($appname: String, $serviceName: String, $serviceType: ServiceType){
     linkService(appname: $appname, serviceName: $serviceName, serviceType: $serviceType){
         ok
+        refresh
         error
     }
 }
@@ -24,4 +25,5 @@ serviceType | `ServiceType`
 Name | Type
 ---- | ----
 ok | `Boolean`
+refresh | `Boolean`
 error | `String`

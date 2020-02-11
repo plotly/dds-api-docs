@@ -8,6 +8,7 @@ query services{
         name
         serviceType
         created
+        status
     }
 }
 ```
@@ -19,3 +20,4 @@ Name | Type
 name | `String`
 serviceType | `ServiceType`
 created | `DateTime`
+status | `String`
