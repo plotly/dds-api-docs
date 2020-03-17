@@ -1,19 +1,22 @@
 [[source]]
+name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-name = "pypi"
-
-[scripts]
-lint = "black ."
-
-[packages]
-gql = {editable = true,git = "https://github.com/cw1427/gql.git",ref = "52e1a04f39452771c6021a4b4fee3a168929c9a4"}
-requests = "*"
-dds = {editable = true,path = "."}
 
 [dev-packages]
 black = "*"
 pylint = "*"
 
+[packages]
+gql = "==0.4.*"
+requests = "==2.*"
+dds = {editable = true,path = "."}
+
+[pipenv]
+allow_prereleases = true
+
 [requires]
 python_version = "3.7"
+
+[scripts]
+lint = "black ."
