@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "generate": "npm run schema && node genReferenceDocs.js",
-    "schema": "get-graphql-schema http://localhost:8888/Manager/graphql > schema.graphql"
+    "schema": "get-graphql-schema https://${DDS_DOMAIN_NAME:-localhost:8888}/Manager/graphql > schema.graphql"
   },
   "author": "Sean Rabaut",
   "license": "MIT",
