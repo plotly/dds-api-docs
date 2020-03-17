@@ -15,7 +15,7 @@ These docs contain the reference DDS GraphQL API (found in the `.md` files), as 
     ```
 
 4. Run `python <path/to/example.py>`
-   - Example: `python mutations/addApp/example.py`
+   - Example: `python queries/apps/by_page.py`
 
 ## Auto-generating Reference Docs
 
