@@ -1,4 +1,4 @@
-# Dash Deployment Server API Docs
+# Dash Enterprise API Docs
 
 These docs contain the reference DDS GraphQL API (found in the `.md` files), as well as runnable Python examples for each query and mutation.
 
