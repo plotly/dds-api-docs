@@ -1,10 +1,10 @@
-# addCollaborators
+# createWorkspace
 
 ## Mutation
 
 ```
-mutation addCollaborators($appname: String, $teams: [String], $users: [String]){
-    addCollaborators(appname: $appname, teams: $teams, users: $users){
+mutation createWorkspace($appname: String, $template: String){
+    createWorkspace(appname: $appname, template: $template){
         app{
             name
             owner{
@@ -113,8 +113,7 @@ mutation addCollaborators($appname: String, $teams: [String], $users: [String]){
 Name | Type
 ---- | ---- 
 appname | `String`
-teams | `[String]`
-users | `[String]`
+template | `String`
 
 ## Returns
 

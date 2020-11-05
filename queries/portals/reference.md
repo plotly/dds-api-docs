@@ -11,6 +11,7 @@ query portals($page: Int, $page1: Int, $name: String){
             logoUrl
             metadata
             requireLogin
+            linkFromPortalToAppManager
             apps(page: $page){
                 apps{
                     name
@@ -39,6 +40,7 @@ query portals($page: Int, $page1: Int, $name: String){
                             email
                         }
                     }
+                    hasWorkspace
                     mounts{
                         hostDir
                         targetDir
@@ -99,10 +101,12 @@ query portals($page: Int, $page1: Int, $name: String){
                         status
                         request{
                             cpu
+                            gpu
                             memory
                         }
                         limit{
                             cpu
+                            gpu
                             memory
                         }
                     }

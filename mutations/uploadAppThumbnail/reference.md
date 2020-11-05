@@ -32,6 +32,7 @@ mutation uploadAppThumbnail($appname: String, $thumbnail: Upload!){
                     email
                 }
             }
+            hasWorkspace
             mounts{
                 hostDir
                 targetDir
@@ -92,10 +93,12 @@ mutation uploadAppThumbnail($appname: String, $thumbnail: Upload!){
                 status
                 request{
                     cpu
+                    gpu
                     memory
                 }
                 limit{
                     cpu
+                    gpu
                     memory
                 }
             }

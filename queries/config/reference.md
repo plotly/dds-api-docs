@@ -12,6 +12,7 @@ query config{
         SSL_DASH_CERT_GENERATE
         AUTH_PASSWORD
         HA_ENABLED
+        DASH_APP_VIEWERS
     }
 }
 ```
@@ -27,3 +28,4 @@ AUTH_LDAP_ENABLED | `Boolean`
 SSL_DASH_CERT_GENERATE | `Boolean`
 AUTH_PASSWORD | `Boolean`
 HA_ENABLED | `Boolean`
+DASH_APP_VIEWERS | `Int`

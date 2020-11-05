@@ -92,8 +92,9 @@ const generateQuery = (
   let childQuery = '';
 
   if(curDepth === 1) {
-   returns = Object.values(curType.getFields())
-  }
+   if (curType.getFields){
+	  returns = Object.values(curType.getFields())
+  }}
 
   if (curType.getFields) {
     const crossReferenceKey = `${curParentName}To${curName}Key`;

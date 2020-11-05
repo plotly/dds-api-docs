@@ -32,6 +32,7 @@ query apps($page: Int, $name: String, $allApps: Boolean){
                     email
                 }
             }
+            hasWorkspace
             mounts{
                 hostDir
                 targetDir
@@ -92,10 +93,12 @@ query apps($page: Int, $name: String, $allApps: Boolean){
                 status
                 request{
                     cpu
+                    gpu
                     memory
                 }
                 limit{
                     cpu
+                    gpu
                     memory
                 }
             }

@@ -11,6 +11,7 @@ mutation updatePortal($page: Int, $metadata: JSONString, $portalname: String, $r
             logoUrl
             metadata
             requireLogin
+            linkFromPortalToAppManager
             apps(page: $page){
                 apps{
                     name
@@ -39,6 +40,7 @@ mutation updatePortal($page: Int, $metadata: JSONString, $portalname: String, $r
                             email
                         }
                     }
+                    hasWorkspace
                     mounts{
                         hostDir
                         targetDir
@@ -99,10 +101,12 @@ mutation updatePortal($page: Int, $metadata: JSONString, $portalname: String, $r
                         status
                         request{
                             cpu
+                            gpu
                             memory
                         }
                         limit{
                             cpu
+                            gpu
                             memory
                         }
                     }

@@ -32,6 +32,7 @@ mutation updateApp($appname: String, $metadata: AppMetaDataInput){
                     email
                 }
             }
+            hasWorkspace
             mounts{
                 hostDir
                 targetDir
@@ -92,10 +93,12 @@ mutation updateApp($appname: String, $metadata: AppMetaDataInput){
                 status
                 request{
                     cpu
+                    gpu
                     memory
                 }
                 limit{
                     cpu
+                    gpu
                     memory
                 }
             }
