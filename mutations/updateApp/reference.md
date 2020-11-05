@@ -7,6 +7,9 @@ mutation updateApp($appname: String, $metadata: AppMetaDataInput){
     updateApp(appname: $appname, metadata: $metadata){
         app{
             name
+            owner{
+                username
+            }
             urlOnServer
             thumbnailUrl
             logs{
@@ -23,6 +26,7 @@ mutation updateApp($appname: String, $metadata: AppMetaDataInput){
                 tags
                 permissionLevel
                 showInPortal
+                sortRank
                 contact{
                     name
                     email
@@ -31,6 +35,12 @@ mutation updateApp($appname: String, $metadata: AppMetaDataInput){
             mounts{
                 hostDir
                 targetDir
+                status
+            }
+            processes{
+                type
+                number
+                status
             }
             analytics{
                 timestamps{
@@ -63,16 +73,31 @@ mutation updateApp($appname: String, $metadata: AppMetaDataInput){
             environmentVariables{
                 name
                 value
+                status
                 readonly
             }
             linkedServices{
                 name
                 serviceType
                 created
+                status
             }
             status{
                 running
                 deploying
+                canScale
+            }
+            resources{
+                type
+                status
+                request{
+                    cpu
+                    memory
+                }
+                limit{
+                    cpu
+                    memory
+                }
             }
         }
         error

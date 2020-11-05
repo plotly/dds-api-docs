@@ -14,6 +14,9 @@ mutation uploadPortalLogo($page: Int, $logo: Upload!, $portalname: String){
             apps(page: $page){
                 apps{
                     name
+                    owner{
+                        username
+                    }
                     urlOnServer
                     thumbnailUrl
                     logs{
@@ -30,6 +33,7 @@ mutation uploadPortalLogo($page: Int, $logo: Upload!, $portalname: String){
                         tags
                         permissionLevel
                         showInPortal
+                        sortRank
                         contact{
                             name
                             email
@@ -38,6 +42,12 @@ mutation uploadPortalLogo($page: Int, $logo: Upload!, $portalname: String){
                     mounts{
                         hostDir
                         targetDir
+                        status
+                    }
+                    processes{
+                        type
+                        number
+                        status
                     }
                     analytics{
                         timestamps{
@@ -70,16 +80,31 @@ mutation uploadPortalLogo($page: Int, $logo: Upload!, $portalname: String){
                     environmentVariables{
                         name
                         value
+                        status
                         readonly
                     }
                     linkedServices{
                         name
                         serviceType
                         created
+                        status
                     }
                     status{
                         running
                         deploying
+                        canScale
+                    }
+                    resources{
+                        type
+                        status
+                        request{
+                            cpu
+                            memory
+                        }
+                        limit{
+                            cpu
+                            memory
+                        }
                     }
                 }
                 nextPage

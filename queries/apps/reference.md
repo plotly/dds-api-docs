@@ -3,10 +3,13 @@
 ## Query
 
 ```
-query apps($page: Int, $name: String){
-    apps(page: $page, name: $name){
+query apps($page: Int, $name: String, $allApps: Boolean){
+    apps(page: $page, name: $name, allApps: $allApps){
         apps{
             name
+            owner{
+                username
+            }
             urlOnServer
             thumbnailUrl
             logs{
@@ -23,6 +26,7 @@ query apps($page: Int, $name: String){
                 tags
                 permissionLevel
                 showInPortal
+                sortRank
                 contact{
                     name
                     email
@@ -31,6 +35,12 @@ query apps($page: Int, $name: String){
             mounts{
                 hostDir
                 targetDir
+                status
+            }
+            processes{
+                type
+                number
+                status
             }
             analytics{
                 timestamps{
@@ -63,16 +73,31 @@ query apps($page: Int, $name: String){
             environmentVariables{
                 name
                 value
+                status
                 readonly
             }
             linkedServices{
                 name
                 serviceType
                 created
+                status
             }
             status{
                 running
                 deploying
+                canScale
+            }
+            resources{
+                type
+                status
+                request{
+                    cpu
+                    memory
+                }
+                limit{
+                    cpu
+                    memory
+                }
             }
         }
         nextPage
@@ -86,6 +111,7 @@ Name | Type
 ---- | ---- 
 page | `Int`
 name | `String`
+allApps | `Boolean`
 
 ## Returns
 

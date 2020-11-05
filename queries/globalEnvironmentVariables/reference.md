@@ -7,6 +7,7 @@ query globalEnvironmentVariables{
     globalEnvironmentVariables{
         name
         value
+        status
         readonly
     }
 }
@@ -18,4 +19,5 @@ Name | Type
 ---- | ----
 name | `String`
 value | `String`
+status | `String`
 readonly | `Boolean`

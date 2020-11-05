@@ -6,6 +6,7 @@
 mutation removeEnvironmentVariable($appname: String, $globalVar: Boolean, $name: String){
     removeEnvironmentVariable(appname: $appname, globalVar: $globalVar, name: $name){
         ok
+        refresh
         error
     }
 }
@@ -24,4 +25,5 @@ name | `String`
 Name | Type
 ---- | ----
 ok | `Boolean`
+refresh | `Boolean`
 error | `String`

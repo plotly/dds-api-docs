@@ -14,6 +14,9 @@ query portals($page: Int, $page1: Int, $name: String){
             apps(page: $page){
                 apps{
                     name
+                    owner{
+                        username
+                    }
                     urlOnServer
                     thumbnailUrl
                     logs{
@@ -30,6 +33,7 @@ query portals($page: Int, $page1: Int, $name: String){
                         tags
                         permissionLevel
                         showInPortal
+                        sortRank
                         contact{
                             name
                             email
@@ -38,6 +42,12 @@ query portals($page: Int, $page1: Int, $name: String){
                     mounts{
                         hostDir
                         targetDir
+                        status
+                    }
+                    processes{
+                        type
+                        number
+                        status
                     }
                     analytics{
                         timestamps{
@@ -70,16 +80,31 @@ query portals($page: Int, $page1: Int, $name: String){
                     environmentVariables{
                         name
                         value
+                        status
                         readonly
                     }
                     linkedServices{
                         name
                         serviceType
                         created
+                        status
                     }
                     status{
                         running
                         deploying
+                        canScale
+                    }
+                    resources{
+                        type
+                        status
+                        request{
+                            cpu
+                            memory
+                        }
+                        limit{
+                            cpu
+                            memory
+                        }
                     }
                 }
                 nextPage
