@@ -32,6 +32,7 @@ mutation removeCollaborators($appname: String, $teams: [String], $users: [String
                     email
                 }
             }
+            hasWorkspace
             mounts{
                 hostDir
                 targetDir
@@ -92,10 +93,12 @@ mutation removeCollaborators($appname: String, $teams: [String], $users: [String
                 status
                 request{
                     cpu
+                    gpu
                     memory
                 }
                 limit{
                     cpu
+                    gpu
                     memory
                 }
             }

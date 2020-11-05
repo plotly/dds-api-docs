@@ -32,6 +32,7 @@ mutation addApp($name: String){
                     email
                 }
             }
+            hasWorkspace
             mounts{
                 hostDir
                 targetDir
@@ -92,10 +93,12 @@ mutation addApp($name: String){
                 status
                 request{
                     cpu
+                    gpu
                     memory
                 }
                 limit{
                     cpu
+                    gpu
                     memory
                 }
             }
