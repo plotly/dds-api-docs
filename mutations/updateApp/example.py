@@ -10,6 +10,7 @@ update_app_mutation = gql(
                 description: "description",
                 tags: "tag1,tag2,tag3",
                 showInPortal: true,
+                permissionLevel: restricted,
                 contact: {
                     name: "contact-name",
                     email: "contact-email@test.com"
@@ -24,6 +25,7 @@ update_app_mutation = gql(
                     description
                     tags
                     showInPortal
+                    permissionLevel
                     contact {
                         name
                         email
