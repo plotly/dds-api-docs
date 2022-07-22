@@ -11,6 +11,7 @@ mutation uploadPortalLogo($page: Int, $logo: Upload!, $portalname: String){
             logoUrl
             metadata
             requireLogin
+            linkFromPortalToAppManager
             apps(page: $page){
                 apps{
                     name
@@ -39,6 +40,7 @@ mutation uploadPortalLogo($page: Int, $logo: Upload!, $portalname: String){
                             email
                         }
                     }
+                    hasWorkspace
                     mounts{
                         hostDir
                         targetDir
@@ -99,10 +101,12 @@ mutation uploadPortalLogo($page: Int, $logo: Upload!, $portalname: String){
                         status
                         request{
                             cpu
+                            gpu
                             memory
                         }
                         limit{
                             cpu
+                            gpu
                             memory
                         }
                     }
